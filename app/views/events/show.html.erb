@@ -22,5 +22,19 @@
   <strong>Data koncertu:</strong>
   <%= @event.event_date %>
 </p>
-
+<% @event.tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.name %></td>
+        <td><%= ticket.seat_id_seq %></td>
+        <td><%= ticket.address %></td>
+        <td><%= ticket.price %></td>
+        <td><%= ticket.email_address %></td>
+        <td><%= ticket.phone %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+<%= render partial: "tickets_list", :locals => { :tickets => @event.tickets } %> 
+<%= render partial: "new_ticket", :locals => { ticket: Ticket.new(event_id: @event.id) } %> 
 <%= link_to 'Back', events_url %>

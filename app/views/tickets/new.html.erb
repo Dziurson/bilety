@@ -1,5 +1,12 @@
 <h1>New Ticket</h1>
 
-<%= render 'form', ticket: @ticket %>
+<table>
+  <tbody>    
+      <tr>
+        <td><%= render 'form', ticket: @ticket %>
+        <td><%= render partial: "event_list", :locals => { :events => Event.all } %>         
+      </tr>    
+  </tbody>
+</table>
 
 <%= link_to 'Back', tickets_path %>
