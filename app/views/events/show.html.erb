@@ -1,0 +1,26 @@
+<p>
+  <strong>Zespół:</strong>
+  <%= @event.artist %>
+</p>
+
+<p>
+  <strong>Opis:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Cena minimalna:</strong>
+  <%= @event.price_low %>
+</p>
+
+<p>
+  <strong>Cena maksymalna:</strong>
+  <%= @event.price_high %>
+</p>
+
+<p>
+  <strong>Data koncertu:</strong>
+  <%= @event.event_date %>
+</p>
+
+<%= link_to 'Back', events_url %>
