@@ -9,16 +9,20 @@
 
   <body>    
     <nav class="navbar navbar-default" role="navigation">  
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <%= link_to 'Bilety', root_url, :class => 'navbar-brand' %>
-        </div>        
+      <div class="container-fluid">        
+        <ul class="nav navbar-nav navbar-left">
+          <li>
+            <%= link_to root_url, :action => 'go' do %>
+              <span class="glyphicon glyphicon-home"></span> Strona Główna
+            <% end %>
+          </li> 
+        </ul>        
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %> 
             <li class="user-title">Zalogowany jako <strong><%= current_user.email %></strong>.</li>
             <li>
               <%= link_to edit_user_registration_path, :action => 'go' do %>
-                <span class="glyphicon glyphicon-edit"></span> Edytuj profil
+                <span class="glyphicon glyphicon-user"></span> Twój profil
               <% end %>
             </li> 
             <li>
