@@ -27,8 +27,8 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.event = Event.find(ticket_params[:event_id]);
-    @ticket.user = User.find(ticket_params[:user_id]);
+    # @ticket.event = Event.find(ticket_params[:event_id]);
+    # @ticket.user = User.find(ticket_params[:user_id]);
     
     respond_to do |format|
       if @ticket.save
