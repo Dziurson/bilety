@@ -21,7 +21,7 @@
           <td><%= link_to 'Pokaż', ticket %></td>
           <% if (ticket.user == current_user && current_user.present?) %> 
             <td><%= link_to 'Edytuj', edit_ticket_path(ticket) %></td>        
-            <td><%= link_to 'Usuń', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Usuń', ticket, method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć ten bilet?' } %></td>
           <% end %>
         </tr>
       <% end %>

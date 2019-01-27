@@ -11,39 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :ticket_name %>
+  <div class="form-group">    
+    <%= form.label :name, "Imię i Nazwisko" %>
+    <%= form.text_field :name, id: :ticket_name, :class => "form-control" %>
+  </div>  
+
+  <div class="form-group">
+    <%= form.label :seat_id_seq, "Numer Miejsca" %>
+    <%= form.text_field :seat_id_seq, id: :ticket_seat_id_seq, :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :seat_id_seq %>
-    <%= form.text_field :seat_id_seq, id: :ticket_seat_id_seq %>
+  <div class="form-group">
+    <%= form.label :address, "Adres" %>
+    <%= form.text_area :address, id: :ticket_address, :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address, id: :ticket_address %>
+  <div class="form-group">
+    <%= form.label :price, "Cena" %>
+    <%= form.text_field :price, id: :ticket_price, :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :ticket_price %>
+  <div class="form-group">
+    <%= form.label :email_address, "E-mail" %>
+    <%= form.text_field :email_address, id: :ticket_email_address, :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :email_address %>
-    <%= form.text_field :email_address, id: :ticket_email_address %>
+  <div class="form-group">
+    <%= form.label :phone, "Telefon" %>
+    <%= form.text_field :phone, id: :ticket_phone, :class => "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :ticket_phone %>
-  </div>
-
-   <div class="field">
-    <%= form.label :event_id %>
-    <%= form.text_field :event_id, id: :ticket_event_id %>
+   <div class="form-group">
+    <%= form.label :event_id, "ID Wydarzenia" %>
+    <%= form.text_field :event_id, id: :ticket_event_id, :class => "form-control" %>
   </div>
 
   <div class="field">    
@@ -51,6 +51,9 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= link_to tickets_path, :class => "btn btn-primary",:action => 'go' do %>
+      <span class="glyphicon glyphicon-menu-left"></span> Powrót
+    <% end %>
+    <%= form.submit "Zakończ", :class => "btn btn-primary" %>    
   </div>
 <% end %>
