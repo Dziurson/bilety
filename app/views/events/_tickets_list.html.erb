@@ -1,15 +1,12 @@
-<h1>Tickets</h1>
+<h1>Bilety</h1>
 
-<table>
+<table class ="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Seat id seq</th>
-      <th>Address</th>
-      <th>Price</th>
-      <th>Email address</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
+      <th>Imię i nazwisko</th>
+      <th>Numer miejsca</th>        
+      <th>Cena</th>        
+      <th colspan="3">Akcje</th>
     </tr>
   </thead>
 
@@ -17,14 +14,13 @@
     <% tickets.each do |ticket| %>
       <tr>
         <td><%= ticket.name %></td>
-        <td><%= ticket.seat_id_seq %></td>
-        <td><%= ticket.address %></td>
-        <td><%= ticket.price %></td>
-        <td><%= ticket.email_address %></td>
-        <td><%= ticket.phone %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= ticket.seat_id_seq %></td>          
+        <td><%= number_with_precision(ticket.price, precision: 2) %> zł</td>         
+        <td><%= link_to 'Pokaż', ticket %></td>
+        <% if (ticket.user == current_user && current_user.present?) %> 
+          <td><%= link_to 'Edytuj', edit_ticket_path(ticket) %></td>        
+          <td><%= link_to 'Usuń', ticket, method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć ten bilet?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

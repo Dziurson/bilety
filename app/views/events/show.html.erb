@@ -1,40 +1,28 @@
-<p>
-  <strong>Zespół:</strong>
-  <%= @event.artist %>
-</p>
-
-<p>
-  <strong>Opis:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Cena minimalna:</strong>
-  <%= @event.price_low %>
-</p>
-
-<p>
-  <strong>Cena maksymalna:</strong>
-  <%= @event.price_high %>
-</p>
-
-<p>
-  <strong>Data koncertu:</strong>
-  <%= @event.event_date %>
-</p>
-<% @event.tickets.each do |ticket| %>
+<div class="container">
+  <h1>Szczegóły Wydarzenia</h1>
+  <table class ="table">
+    <thead>
       <tr>
-        <td><%= ticket.name %></td>
-        <td><%= ticket.seat_id_seq %></td>
-        <td><%= ticket.address %></td>
-        <td><%= ticket.price %></td>
-        <td><%= ticket.email_address %></td>
-        <td><%= ticket.phone %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nazwa Wydarzenia</th>        
+        <th>Cena Minimalna</th>
+        <th>Cena Maksymalna</th>
+        <th>Data Wydarzenia</th>        
       </tr>
-    <% end %>
-<%= render partial: "tickets_list", :locals => { :tickets => @event.tickets } %> 
-<%= render partial: "new_ticket", :locals => { ticket: Ticket.new(event_id: @event.id) } %> 
-<%= link_to 'Back', events_url %>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @event.artist %></td>
+        <td><%= number_with_precision(@event.price_low, precision: 2) %> zł</td>
+        <td><%= number_with_precision(@event.price_high, precision: 2) %> zł</td>
+        <td><%= @event.event_date %></td>              
+      </tr>
+    </tbody>
+  </table>  
+  <h1>Opis Wydarzenia</h1>
+  <p><%= @event.description %></p>
+  <%= render partial: "tickets_list", :locals => { :tickets => @event.tickets } %> 
+  <% if (current_user.present?) %> 
+    <%= render partial: "new_ticket", :locals => { ticket: Ticket.new(event_id: @event.id) } %>
+  <% end %>
+</div>

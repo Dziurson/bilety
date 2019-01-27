@@ -14,32 +14,35 @@
 </div>
 <% end %>
 
-<div class="field">
-  <%= form.label :artist %>
-  <%= form.text_field :artist, id: :event_artist %>
+<div class="form-group">    
+  <%= form.label :artist, "Nazwa Wydarzenia" %>
+  <%= form.text_field :artist, id: :event_artist, :class => "form-control" %>
 </div>
 
-<div class="field">
-  <%= form.label :description %>
-  <%= form.text_field :description, id: :event_description %>
+<div class="form-group">
+  <%= form.label :description, "Opis Wydarzenia" %>
+  <%= form.text_field :description, id: :event_description, :class => "form-control"  %>
 </div>
 
-<div class="field">
-  <%= form.label :price_low %>
-  <%= form.text_area :price_low, id: :event_price_low %>
+<div class="form-group">
+  <%= form.label :price_low, "Cena Minimalna" %>
+  <%= form.text_area :price_low, id: :event_price_low, :class => "form-control"  %>
 </div>
 
-<div class="field">
-  <%= form.label :price_high %>
-  <%= form.text_field :price_high, id: :event_price_high %>
+<div class="form-group">
+  <%= form.label :price_high, "Cena Maksymalna" %>
+  <%= form.text_field :price_high, id: :event_price_high, :class => "form-control"  %>
 </div>
 
-<div class="field">
-  <%= form.label :event_date %>
-  <%= form.text_field :event_date, id: :event_event_date %>
+<div class="form-group">
+  <%= form.label :event_date, "Data Wydarzenia" %>
+  <%= form.text_field :event_date, id: :event_event_date, :class => "form-control"  %>
 </div>
 
 <div class="actions">
-  <%= form.submit %>
-</div>
+    <%= link_to events_url, :class => "btn btn-primary",:action => 'go' do %>
+      <span class="glyphicon glyphicon-menu-left"></span> Powrót
+    <% end %>
+    <%= form.submit "Dodaj Nowe Wydarzenie", :class => "btn btn-primary" %>    
+  </div>
 <% end %>

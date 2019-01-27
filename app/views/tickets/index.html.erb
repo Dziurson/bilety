@@ -28,6 +28,9 @@
     </tbody>
   </table>
   <br>
+  <%= link_to root_url, :class => "btn btn-primary",:action => 'go' do %>
+    <span class="glyphicon glyphicon-menu-left"></span> Powrót
+  <% end %>
   <%= link_to new_ticket_path, :class => "btn btn-primary",:action => 'go' do %>
     <span class="glyphicon glyphicon-plus"></span> Nowy Bilet
   <% end %>
