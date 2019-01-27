@@ -1,2 +1,14 @@
-<%= link_to 'Bilety', tickets_url %>
-<%= link_to 'Wydarzenia', events_url %>
+<div class="menu-container container">
+  <div class="col-md-5">
+    <div class="row custom-row">
+      <%= link_to tickets_url, :class => "btn btn-block btn-lg btn-primary",:action => 'go' do %>
+        <span class="glyphicon glyphicon-tag"></span> Bilety
+      <% end %>      
+    </div>
+    <div class="row custom-row">
+      <%= link_to events_url, :class => "btn btn-block btn-lg btn-primary",:action => 'go' do %>
+        <span class="glyphicon glyphicon-calendar"></span> Wydarzenia
+      <% end %>      
+    </div>    
+  </div>
+</div>
