@@ -1,36 +1,36 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Szczegóły Biletu</h1>
+  <table class ="table">
+    <thead>
+      <tr>
+        <th>Imię i nazwisko</th>
+        <th>Numer miejsca</th>
+        <th>Adres</th>
+        <th>Cena</th>
+        <th>E-mail</th>
+        <th>Telefon</th>
+      </tr>
+    </thead>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ticket.name %>
-</p>
-
-<p>
-  <strong>Seat id seq:</strong>
-  <%= @ticket.seat_id_seq %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @ticket.address %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @ticket.price %>
-</p>
-
-<p>
-  <strong>Email address:</strong>
-  <%= @ticket.email_address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @ticket.phone %>
-</p>
-
-<% if (@ticket.user == current_user && current_user.present?)  %> 
-  <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<% end %>
-<%= link_to 'Powrót', tickets_path %>
+    <tbody>
+      <tr>
+        <td><%= @ticket.name %></td>
+        <td><%= @ticket.seat_id_seq %></td>
+        <td><%= @ticket.address %></td>
+        <td><%= number_with_precision(@ticket.price, precision: 2) %> zł</td>
+        <td><%= @ticket.email_address %></td>
+        <td><%= @ticket.phone %></td>        
+      </tr>
+    </tbody>
+  </table>
+  <br> 
+  <%= link_to tickets_path, :class => "btn btn-primary",:action => 'go' do %>
+    <span class="glyphicon glyphicon-menu-left"></span> Powrót
+  <% end %>  
+  <% if (@ticket.user == current_user && current_user.present?)  %> 
+    <%= link_to edit_ticket_path(@ticket), :class => "btn btn-primary",:action => 'go' do %>
+      <span class="glyphicon glyphicon-edit"></span> Zmień Dane Biletu
+    <% end %>    
+  <% end %>  
+</div>

@@ -46,6 +46,10 @@
     <%= form.text_field :event_id, id: :ticket_event_id %>
   </div>
 
+  <div class="field">    
+    <%= form.hidden_field :user_id, :value => current_user.id %>   
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
